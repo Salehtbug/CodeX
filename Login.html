@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بشاير الخير "البرمجة للخير" - تسجيل الدخول</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
+        
+        :root {
+            --primary-color: #00493a;
+            --secondary-color: #f8f9fa;
+            --accent-color: #e7f3ef;
+            --text-color: #333;
+            --white: #fff;
+            --error: #dc3545;
+            --success: #28a745;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        body {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            background-color: var(--white);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .image-side {
+            flex: 1;
+            background-image: url('/api/placeholder/600/800');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            min-height: 600px;
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 73, 58, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .logo {
+            max-width: 180px;
+            margin-bottom: 30px;
+        }
+        
+        .overlay h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .overlay p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .form-side {
+            flex: 1;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .form-header h2 {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .form-header p {
+            color: #6c757d;
+        }
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .tab {
+            padding: 12px 40px;
+            cursor: pointer;
+            font-weight: 600;
+            position: relative;
+            color: #6c757d;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .tab.active {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .form-container {
+            display: none;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .form-container.active {
+            display: block;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #495057;
+        }
+        
+        .input-container {
+            position: relative;
+        }
+        
+        .input-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 14px 45px 14px 15px;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background-color: #f8f9fa;
+        }
+        
+        .form-group input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 73, 58, 0.15);
+            background-color: var(--white);
+        }
+        
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            background-color: #003a2e;
+        }
+        
+        .error-message {
+            color: var(--error);
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .success-message {
+            color: var(--success);
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .remember-me {
+            display: flex;
+            align-items: center;
+        }
+        
+        .remember-me input {
+            margin-left: 8px;
+        }
+        
+        .forgot-password a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .form-footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #6c757d;
+        }
+        
+        .form-footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            margin-right: 5px;
+        }
+        
+        .social-login {
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .social-login p {
+            position: relative;
+            margin-bottom: 25px;
+            color: #6c757d;
+        }
+        
+        .social-login p::before,
+        .social-login p::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 30%;
+            height: 1px;
+            background-color: #ddd;
+        }
+        
+        .social-login p::before {
+            right: 0;
+        }
+        
+        .social-login p::after {
+            left: 0;
+        }
+        
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .social-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .social-button:hover {
+            background-color: var(--accent-color);
+            border-color: var(--primary-color);
+        }
+        
+        .social-button i {
+            font-size: 20px;
+            color: #6c757d;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 992px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .image-side {
+                min-height: 300px;
+            }
+            
+            .form-side {
+                padding: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .form-side {
+                padding: 20px;
+            }
+            
+            .tabs {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .tab {
+                text-align: center;
+                padding: 10px;
+            }
+            
+            .form-options {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+            
+            .social-login p::before,
+            .social-login p::after {
+                width: 20%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-side">
+            <div class="overlay">
+                <div class="logo">🌙</div>
+                <h1>"بشاير الخير"</h1>
+                <p>انضم إلينا في رحلة العطاء خلال شهر رمضان المبارك، وكن جزءًا من مبادرات تغير حياة الآخرين للأفضل.</p>
+            </div>
+        </div>
+        
+        <div class="form-side">
+            <div class="form-header">
+                <h2>مرحبًا بك في منصة بشاير الخير </h2>
+                <p>ادخل بياناتك للمشاركة في أنشطة التبرع والتطوع</p>
+            </div>
+            
+            <div class="tabs">
+                <div class="tab active" id="login-tab">تسجيل الدخول</div>
+                <div class="tab" id="register-tab">إنشاء حساب</div>
+            </div>
+            
+            <div class="form-container active" id="login-form">
+                <form id="login">
+                    <div class="form-group">
+                        <label for="login-email">البريد الإلكتروني</label>
+                        <div class="input-container">
+                            <input type="email" id="login-email" required placeholder="أدخل بريدك الإلكتروني">
+                            <div class="input-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                        </div>
+                        <div class="error-message" id="login-email-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="login-password">كلمة المرور</label>
+                        <div class="input-container">
+                            <input type="password" id="login-password" required placeholder="أدخل كلمة المرور">
+                            <div class="input-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        <div class="error-message" id="login-password-error"></div>
+                    </div>
+                    
+                    <div class="form-options">
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember">
+                            <label for="remember">تذكرني</label>
+                        </div>
+                        
+                        <div class="forgot-password">
+                            <a href="#">نسيت كلمة المرور؟</a>
+                        </div>
+                    </div>
+                    
+                    <button type="submit">تسجيل الدخول</button>
+                    <div class="success-message" id="login-success">تم تسجيل الدخول بنجاح! جاري التحويل...</div>
+                    <div class="error-message" id="login-error"></div>
+                    
+                    <div class="form-footer">
+                        ليس لديك حساب؟ <a href="#" id="show-register">إنشاء حساب جديد</a>
+                    </div>
+                    
+                    <div class="social-login">
+                        <p>أو التسجيل باستخدام</p>
+                        <div class="social-buttons">
+                            <div class="social-button">
+                                <i class="fab fa-google"></i>
+                            </div>
+                            <div class="social-button">
+                                <i class="fab fa-facebook-f"></i>
+                            </div>
+                            <div class="social-button">
+                                <i class="fab fa-twitter"></i>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="form-container" id="register-form">
+                <form id="register">
+                    <div class="form-group">
+                        <label for="register-name">الاسم الكامل</label>
+                        <div class="input-container">
+                            <input type="text" id="register-name" required placeholder="أدخل اسمك الكامل">
+                            <div class="input-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <div class="error-message" id="register-name-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-email">البريد الإلكتروني</label>
+                        <div class="input-container">
+                            <input type="email" id="register-email" required placeholder="أدخل بريدك الإلكتروني">
+                            <div class="input-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                        </div>
+                        <div class="error-message" id="register-email-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-mobile">رقم الهاتف</label>
+                        <div class="input-container">
+                            <input type="tel" id="register-mobile" required placeholder="أدخل رقم الجوال">
+                            <div class="input-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                        </div>
+                        <div class="error-message" id="register-mobile-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-password">كلمة المرور</label>
+                        <div class="input-container">
+                            <input type="password" id="register-password" required placeholder="أدخل كلمة المرور">
+                            <div class="input-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        <div class="error-message" id="register-password-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-confirm-password">تأكيد كلمة المرور</label>
+                        <div class="input-container">
+                            <input type="password" id="register-confirm-password" required placeholder="أكد كلمة المرور">
+                            <div class="input-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        <div class="error-message" id="register-confirm-error"></div>
+                    </div>
+                    
+                    <button type="submit">إنشاء حساب</button>
+                    <div class="success-message" id="register-success">تم إنشاء الحساب بنجاح! يمكنك الآن تسجيل الدخول.</div>
+                    <div class="error-message" id="register-error"></div>
+                    
+                    <div class="form-footer">
+                        لديك حساب بالفعل؟ <a href="#" id="show-login">تسجيل الدخول</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+// Tab switching functionality
+const loginTab = document.getElementById('login-tab');
+const registerTab = document.getElementById('register-tab');
+const loginForm = document.getElementById('login-form');
+const registerForm = document.getElementById('register-form');
+const showRegister = document.getElementById('show-register');
+const showLogin = document.getElementById('show-login');
+
+function switchToLogin() {
+    loginTab.classList.add('active');
+    registerTab.classList.remove('active');
+    loginForm.classList.add('active');
+    registerForm.classList.remove('active');
+}
+
+function switchToRegister() {
+    registerTab.classList.add('active');
+    loginTab.classList.remove('active');
+    registerForm.classList.add('active');
+    loginForm.classList.remove('active');
+}
+
+loginTab.addEventListener('click', switchToLogin);
+registerTab.addEventListener('click', switchToRegister);
+showRegister.addEventListener('click', (e) => {
+    e.preventDefault();
+    switchToRegister();
+});
+showLogin.addEventListener('click', (e) => {
+    e.preventDefault();
+    switchToLogin();
+});
+
+// Form submission handlers
+const loginFormEl = document.getElementById('login');
+const registerFormEl = document.getElementById('register');
+
+// Validate email format
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+// Validate phone number (Saudi Arabia format)
+const phoneRegex = /^(00962|\+962|07)(70|77|78|79|75|76)[0-9]{7}$/;
+function isValidPhone(phone) {
+    return phoneRegex.test(phone);
+}
+
+// Password strength validation
+function isStrongPassword(password) {
+    return password.length >= 8;
+}
+
+// Register form submission
+registerFormEl.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Get form values
+    const name = document.getElementById('register-name').value.trim();
+    const email = document.getElementById('register-email').value.trim();
+    const mobile = document.getElementById('register-mobile').value.trim();
+    const password = document.getElementById('register-password').value;
+    const confirmPassword = document.getElementById('register-confirm-password').value;
+    
+    // Reset error messages
+    document.querySelectorAll('.error-message').forEach(el => el.style.display = 'none');
+    document.getElementById('register-success').style.display = 'none';
+    
+    // Validate form
+    let isValid = true;
+    
+    if (name === '') {
+        document.getElementById('register-name-error').textContent = 'الاسم الكامل مطلوب';
+        document.getElementById('register-name-error').style.display = 'block';
+        isValid = false;
+    }
+    
+    if (!isValidEmail(email)) {
+        document.getElementById('register-email-error').textContent = 'يرجى إدخال بريد إلكتروني صحيح';
+        document.getElementById('register-email-error').style.display = 'block';
+        isValid = false;
+    }
+    
+    if (!isValidPhone(mobile)) {
+        document.getElementById('register-mobile-error').textContent = 'يرجى إدخال رقم جوال صحيح';
+        document.getElementById('register-mobile-error').style.display = 'block';
+        isValid = false;
+    }
+    
+    if (!isStrongPassword(password)) {
+        document.getElementById('register-password-error').textContent = 'يجب أن تتكون كلمة المرور من 8 أحرف على الأقل';
+        document.getElementById('register-password-error').style.display = 'block';
+        isValid = false;
+    }
+    
+    if (password !== confirmPassword) {
+        document.getElementById('register-confirm-error').textContent = 'كلمات المرور غير متطابقة';
+        document.getElementById('register-confirm-error').style.display = 'block';
+        isValid = false;
+    }
+    
+    // Check if user already exists
+    const users = JSON.parse(localStorage.getItem('users') || '[]');
+    const userExists = users.some(user => user.email === email);
+    
+    if (userExists) {
+        document.getElementById('register-error').textContent = 'البريد الإلكتروني مسجل بالفعل';
+        document.getElementById('register-error').style.display = 'block';
+        isValid = false;
+    }
+    
+    // Save data if valid
+    if (isValid) {
+        const newUser = {
+            name,
+            email,
+            mobile,
+            password,
+            activities: [],
+            donations: [],
+            registeredAt: new Date().toISOString()
+        };
+        
+        // Save to localStorage
+        users.push(newUser);
+        console.log('Users before saving:', users);
+        localStorage.setItem('users', JSON.stringify(users));
+        console.log('Users after saving:', JSON.parse(localStorage.getItem('users')));
+        
+        // Show success message
+        document.getElementById('register-success').style.display = 'block';
+        registerFormEl.reset();
+        
+        // Switch to login after 2 seconds
+        setTimeout(() => {
+            switchToLogin();
+        }, 2000);
+    }
+});
+
+// Login form submission
+loginFormEl.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Get form values
+    const email = document.getElementById('login-email').value.trim();
+    const password = document.getElementById('login-password').value;
+    const remember = document.getElementById('remember').checked;
+    
+    // Reset error messages
+    document.querySelectorAll('.error-message').forEach(el => el.style.display = 'none');
+    document.getElementById('login-success').style.display = 'none';
+    
+    // Validate form
+    let isValid = true;
+    
+    if (!isValidEmail(email)) {
+        document.getElementById('login-email-error').textContent = 'يرجى إدخال بريد إلكتروني صحيح';
+        document.getElementById('login-email-error').style.display = 'block';
+        isValid = false;
+    }
+    
+    if (password === '') {
+        document.getElementById('login-password-error').textContent = 'يرجى إدخال كلمة المرور';
+        document.getElementById('login-password-error').style.display = 'block';
+        isValid = false;
+    }
+    
+    // Attempt login if valid
+    if (isValid) {
+        const users = JSON.parse(localStorage.getItem('users') || '[]');
+        const user = users.find(user => user.email === email && user.password === password);
+        
+        if (user) {
+            // Login successful
+            document.getElementById('login-success').style.display = 'block';
+            
+            // Create user session data
+            const sessionData = {
+                name: user.name,
+                email: user.email,
+                mobile: user.mobile,
+                activities: user.activities,
+                donations: user.donations,
+                loggedInAt: new Date().toISOString()
+            };
+            
+            // Save to session storage
+            sessionStorage.setItem('currentUser', JSON.stringify(sessionData));
+            console.log('Session data saved to sessionStorage:', sessionData);
+            
+            // If remember me is checked, also save to local storage for persistent login
+            if (remember) {
+                localStorage.setItem('rememberedUser', JSON.stringify(sessionData));
+            } else {
+                localStorage.removeItem('rememberedUser');
+            }
+            
+            // Reset form
+            loginFormEl.reset();
+            
+            // Redirect to dashboard (simulate for demo)
+            setTimeout(() => {
+                alert('تم تسجيل الدخول بنجاح! سيتم توجيهك إلى لوحة التحكم.');
+                window.location.href = 'indexb.html'; // Redirect to the index page
+            }, 1500);
+        } else {
+            // Login failed
+            document.getElementById('login-error').textContent = 'البريد الإلكتروني أو كلمة المرور غير صحيحة';
+            document.getElementById('login-error').style.display = 'block';
+        }
+    }
+});
+
+    </script>
+</body>
+</html>

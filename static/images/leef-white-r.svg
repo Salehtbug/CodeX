@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="354.413" height="212.958" viewBox="0 0 354.413 212.958">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-2 {
+        opacity: 0.753;
+        fill: url(#linear-gradient-2);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="0.183" y1="0.395" x2="0" y2="1.633" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0.698"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.182" y1="0.093" x2="0.019" y2="1.109" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+  </defs>
+  <g id="leef-white-r" transform="translate(-129.617 1827.949)">
+    <path id="Path_4429" data-name="Path 4429" class="cls-1" d="M284.788,0C271.465,113.3,151,203.472,0,212.958,13.322,99.662,133.789,9.486,284.788,0Z" transform="translate(199.242 -1827.949)"/>
+    <path id="Path_4429-2" data-name="Path 4429" class="cls-2" d="M255.012,0C243.083,101.452,135.21,182.2,0,190.693,11.929,89.242,119.8,8.494,255.012,0Z" transform="translate(129.617 -1827.948)"/>
+  </g>
+</svg>

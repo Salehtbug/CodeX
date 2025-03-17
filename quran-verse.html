@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آية قرآنية</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: transparent;
+        }
+
+        .verse-container {
+            width: 800px;
+            height: 400px;
+            background: linear-gradient(135deg, #f8f4e6 0%, #f0e6c9 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .verse-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><text x="50" y="50" font-family="Arial" font-size="80" text-anchor="middle" dominant-baseline="middle" fill="rgba(0,0,0,0.03)">الله</text></svg>');
+            background-repeat: repeat;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .verse-text {
+            font-family: 'Amiri', 'Traditional Arabic', serif;
+            font-size: 32px;
+            line-height: 1.8;
+            text-align: center;
+            color: #1D6E53;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            max-width: 90%;
+        }
+
+        .verse-source {
+            font-family: 'Amiri', serif;
+            font-size: 18px;
+            color: #1D6E53;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 30px;
+        }
+
+        .decoration {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(29, 110, 83, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .decoration-1 {
+            top: -30px;
+            left: -30px;
+            width: 150px;
+            height: 150px;
+        }
+
+        .decoration-2 {
+            bottom: -40px;
+            right: -40px;
+            width: 180px;
+            height: 180px;
+        }
+
+        .decoration-3 {
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            width: 80px;
+            height: 80px;
+        }
+
+        .decoration-4 {
+            top: 30%;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+        }
+
+        .border-decoration {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 2px solid rgba(29, 110, 83, 0.2);
+            border-radius: 10px;
+            z-index: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="verse-container">
+        <div class="decoration decoration-1"></div>
+        <div class="decoration decoration-2"></div>
+        <div class="decoration decoration-3"></div>
+        <div class="decoration decoration-4"></div>
+        <div class="border-decoration"></div>
+
+        <div class="verse-text">
+            ﴿مَثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ أَنبَتَتْ سَبْعَ سَنَابِلَ
+            فِي كُلِّ سُنبُلَةٍ مِّائَةُ حَبَّةٍ ۗ وَاللَّهُ يُضَاعِفُ لِمَن يَشَاءُ ۗ وَاللَّهُ وَاسِعٌ عَلِيمٌ﴾
+        </div>
+
+        <div class="verse-source">سورة البقرة: 261</div>
+    </div>
+</body>
+
+</html>
